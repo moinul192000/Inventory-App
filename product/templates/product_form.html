@@ -1,0 +1,66 @@
+<style>
+  /* Set font and size for form elements */
+  form * {
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+
+  /* Style the label elements */
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  /* Style the input, textarea, and select elements */
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Set the maximum height of the attributes textarea to 3 lines */
+  #id_attributes {
+    max-height: 3em;
+    overflow: hidden;
+  }
+
+  /* Style the submit button */
+  form button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Style the submit button on hover */
+  form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Set the maximum width of the form container */
+  .form-container > form {
+    max-width: 750px;
+    width: 70%;
+  }
+</style>
+
+<div class="container">
+  <h1>Add New Product</h1>
+  <div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %} {{ item_form.as_p }} {{ item_sizes_form.as_p }}
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>

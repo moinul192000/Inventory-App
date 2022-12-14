@@ -1,0 +1,41 @@
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+</style>
+<h1>Item List</h1>
+
+<!-- Create a table to display the items and their stock values -->
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Type</th>
+    <th>Sizes</th>
+  </tr>
+  {% for item,sizes in item_with_sizes %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.type }}</td>
+    <td>
+      <ul>
+        {% for size,stock in sizes %}
+        <li>{{ size }} - {{ stock }}</li>
+        {% endfor %}
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
